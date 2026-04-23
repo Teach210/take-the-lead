@@ -167,16 +167,27 @@ h1 {
   color: var(--ink-soft);
 }
 
-.landing-placeholder {
-  min-height: 210px;
-  border: 2px dashed rgba(23, 107, 116, 0.34);
-  border-radius: 14px;
-  background:
-    linear-gradient(135deg, rgba(23, 107, 116, 0.06), rgba(203, 141, 31, 0.08));
+.landing-grid {
   display: grid;
-  place-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.landing-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff 0%, var(--paper) 100%);
+  padding: 1rem;
+}
+
+.landing-card h3 {
+  margin-bottom: 0.55rem;
+  font-size: 1.05rem;
+}
+
+.landing-card p {
+  margin: 0;
   color: var(--ink-soft);
-  font-weight: 600;
 }
 
 .presentation-frame {
@@ -186,6 +197,76 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 14px;
   background: #fff;
+}
+
+.presentation-actions {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid rgba(23, 107, 116, 0.25);
+  background: linear-gradient(140deg, #1b7882 0%, #176b74 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.93rem;
+  letter-spacing: 0.01em;
+  border-radius: 12px;
+  padding: 0.64rem 0.96rem;
+  box-shadow: 0 8px 20px rgba(23, 107, 116, 0.24);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(23, 107, 116, 0.3);
+}
+
+.download-note {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.references-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--ink-soft);
+}
+
+.references-list li + li {
+  margin-top: 0.55rem;
+}
+
+.references-list a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(23, 107, 116, 0.35);
+}
+
+.references-list a:hover {
+  border-bottom-color: var(--teal);
+}
+
+.glossary-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--ink-soft);
+}
+
+.glossary-list li + li {
+  margin-top: 0.6rem;
+}
+
+.glossary-term {
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .frame-help {
@@ -235,6 +316,24 @@ h1 {
   color: rgba(30, 39, 56, 0.72);
 }
 
+.footer-meta {
+  margin-top: 0.45rem;
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: var(--teal);
+  border-bottom: 1px solid rgba(23, 107, 116, 0.35);
+  font-weight: 600;
+}
+
+.footer-link:hover {
+  border-bottom-color: var(--teal);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -272,6 +371,10 @@ h1 {
   }
 
   .bios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-grid {
     grid-template-columns: 1fr;
   }
 
@@ -358,6 +461,8 @@ function App() {
             <a className="nav-link" href="#home">Home</a>
             <a className="nav-link" href="#presentations">Presentations</a>
             <a className="nav-link" href="#team-bio">Team Bio</a>
+            <a className="nav-link" href="#references">References</a>
+            <a className="nav-link" href="#glossary">Glossary</a>
           </div>
         </nav>
       </header>
@@ -367,14 +472,47 @@ function App() {
           <p className="eyebrow">CS 410 Workforce Development</p>
           <h1>Take the Lead</h1>
           <p className="hero-copy">
-            This landing page is intentionally simple right now. We will add our final
-            intro text, team highlights, and project summary here later.
+            A platform that helps pet owners fund urgent veterinary care while improving
+            access to reliable support resources.
           </p>
         </section>
 
         <section className="section-shell reveal" aria-labelledby="home-landing-title">
           <h2 id="home-landing-title" className="section-title">Home / Landing</h2>
-          <div className="landing-placeholder">Landing content area (currently blank)</div>
+          <div className="landing-grid">
+            <article className="landing-card">
+              <h3>Elevator Pitch</h3>
+              <p>
+                Take the Lead is a donation-based platform designed to help pet owners address
+                urgent veterinary expenses. The platform supports 30-day campaigns so owners can
+                raise funds quickly and reduce delays in accessing treatment.
+              </p>
+            </article>
+            <article className="landing-card">
+              <h3>Problem Description</h3>
+              <p>
+                Pet care is costly, and many owners lack access to timely financial support and
+                reliable health information. Veterinary care is often necessary, yet available
+                funding options and trusted guidance are limited or difficult to navigate.
+              </p>
+            </article>
+            <article className="landing-card">
+              <h3>Customer and End User</h3>
+              <p>
+                The primary users are pet owners managing emergency or unexpected veterinary
+                costs. Secondary users include veterinary providers who need a transparent process
+                for verifying care and receiving campaign-supported payments.
+              </p>
+            </article>
+            <article className="landing-card">
+              <h3>Solution Statement</h3>
+              <p>
+                Take the Lead delivers a secure, centralized platform for funding urgent pet
+                medical care while improving access to practical resources, including pet health
+                information, insurance guidance, and care support services.
+              </p>
+            </article>
+          </div>
         </section>
 
         <section
@@ -389,9 +527,19 @@ function App() {
           <iframe
             className="presentation-frame"
             title="Working Draft Feasibility Presentation"
-            src="https://docs.google.com/presentation/d/13J3pDjo19514LrfHQJPUIonnyia8IgNYAghUEXkNVUs/embed?start=false&loop=false&delayms=3000"
+            src="https://docs.google.com/presentation/d/1fMT1mr5lzd49JsqnMI66UK1awXY30v3f7sXNBwCdtjw/embed?start=false&loop=false&delayms=3000"
             allowFullScreen
           ></iframe>
+          <div className="presentation-actions" aria-label="Presentation Downloads">
+            <a
+              className="download-btn"
+              href="https://docs.google.com/presentation/d/1fMT1mr5lzd49JsqnMI66UK1awXY30v3f7sXNBwCdtjw/export/pdf"
+              download
+            >
+              Download Presentation PDF
+            </a>
+            <span className="download-note">Downloads the latest Google Slides version as a PDF.</span>
+          </div>
           {/*
           <p className="frame-help">
             If the deck does not display, set sharing to <code>Anyone with the link</code>
@@ -417,10 +565,66 @@ function App() {
             ))}
           </div>
         </section>
+
+        <section id="references" className="section-shell reveal" aria-labelledby="references-title">
+          <h2 id="references-title" className="section-title">References</h2>
+          <p className="section-note">
+            Source links used in the project will be documented here.
+          </p>
+          <ul className="references-list">
+            <li>
+              Google Slides Working Deck: Take the Lead Presentation (link temporarily hidden until final citation review)
+            </li>
+            <li>
+              <a href="https://www.nomv.org/" target="_blank" rel="noreferrer">Not One More Vet</a>.
+              "Veterinary Profession Mental Wellness." 2025. Accessed 12 Mar. 2026.
+            </li>
+            <li>
+              Add additional citations for data points, statistics, and external resources used in the proposal.
+            </li>
+          </ul>
+        </section>
+
+        <section id="glossary" className="section-shell reveal" aria-labelledby="glossary-title">
+          <h2 id="glossary-title" className="section-title">Glossary</h2>
+          <p className="section-note">
+            Key project terms and definitions are listed here for quick reference.
+          </p>
+          <ul className="glossary-list">
+            <li>
+              <span className="glossary-term">TAM (Total Addressable Market):</span> The full
+              market demand for the product or service.
+            </li>
+            <li>
+              <span className="glossary-term">SAM (Serviceable Addressable Market):</span> The
+              segment of TAM that can be targeted with the current solution.
+            </li>
+            <li>
+              <span className="glossary-term">SOM (Serviceable Obtainable Market):</span> The
+              realistic portion of SAM that can be captured in the near term.
+            </li>
+            <li>
+              Add additional project-specific terms and definitions here as they are finalized.
+            </li>
+          </ul>
+        </section>
       </main>
 
       <footer className="site-footer">
         <small>&copy; {year} Take the Lead</small>
+        <div className="footer-meta" aria-label="Academic Links">
+          <a className="footer-link" href="https://www.odu.edu/" target="_blank" rel="noreferrer">
+            Old Dominion University
+          </a>
+          <a
+            className="footer-link"
+            href="https://www.odu.edu/computer-science"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ODU Computer Science Department
+          </a>
+        </div>
       </footer>
     </>
   );
