@@ -277,11 +277,13 @@ h1 {
 
 .bios-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
 }
 
 .bio-card {
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: linear-gradient(180deg, #fff 0%, var(--paper) 100%);
@@ -290,15 +292,19 @@ h1 {
 
 .bio-photo {
   width: 100%;
-  height: 180px;
+  aspect-ratio: 4 / 3;
+  height: auto;
   object-fit: cover;
+  object-position: center 20%;
   display: block;
 }
 
 .bio-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   padding: 1rem;
 }
-
 .bio-role {
   margin: 0.35rem 0 0.55rem;
   color: var(--gold);
@@ -371,7 +377,7 @@ h1 {
   }
 
   .bios-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .landing-grid {
@@ -380,6 +386,12 @@ h1 {
 
   .presentation-frame {
     min-height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bios-grid {
+    grid-template-columns: 1fr;
   }
 }
 `;
