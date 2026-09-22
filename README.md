@@ -1,6 +1,6 @@
 # Team Website + GitHub Pages
 
-This project is set up as a static React JSX site for GitHub Pages.
+This project is a Vite multi-page React site deployed to GitHub Pages.
 
 ## Website Iteration 1
 
@@ -19,7 +19,7 @@ This section tracks updates made after the initial assignment requirements.
 - Updated the Presentations iframe to use the new Google Slides link
 - Added a styled "Download Presentation PDF" button in the Presentations section
 - Updated the download button to use Google Slides PDF export for automatic latest-version downloads
-- Kept a local backup copy of the presentation PDF in the `files` folder
+- Kept a local backup copy of the presentation PDF in `public/files/`
 - Populated the Home/Landing section with Elevator Pitch, Problem Description, Customer and End User, and Solution Statement content
 - Refined Home/Landing text to a more formal, professional tone for submission readiness
 - Added a new References section for project source tracking and citation placeholders
@@ -33,12 +33,38 @@ This section tracks updates made after the initial assignment requirements.
 
 - Add each new change as a bullet point under this section
 - Keep entries short and specific (what changed and where, if helpful)
+- Added a Labs placeholder page and header navigation link
+- Moved every primary navigation destination to an extensionless, independently built route
+- Standardized shared UI, styles, data, and page entrypoints under `src/`
+- Added a Vite production build and GitHub Pages deployment workflow
 
 ## Files
 
-- `index.html` (entry page that loads React + Babel)
-- `index.jsx` (all JSX markup, styling, and behavior)
-- `images/` (team member photos)
-- `files/` (backup downloadable files such as presentation PDFs)
+- `src/pages/` (route HTML documents and page entry modules)
+- `src/components/` (shared React components)
+- `src/data/` (navigation and team data)
+- `src/styles/` (shared site styles)
+- `src/app/` (React mounting utilities)
+- `public/images/` (team member photos)
+- `public/files/` (downloadable project files)
+- `vite.config.js` (multi-page production build)
+- `.github/workflows/pages.yml` (GitHub Pages deployment)
+
+## Development
+
+Install dependencies and run the development server:
+
+```bash
+npm install
+npm run dev
+```
+
+Build the production site with the GitHub Pages repository base:
+
+```bash
+npm run build -- --base /take-the-lead/
+```
+
+The generated site is written to `dist/`.
 
 
