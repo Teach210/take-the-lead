@@ -37,6 +37,7 @@ This section tracks updates made after the initial assignment requirements.
 - Moved every primary navigation destination to an extensionless, independently built route
 - Standardized shared UI, styles, data, and page entrypoints under `src/`
 - Added a Vite production build and GitHub Pages deployment workflow
+- Replaced the Labs placeholder with downloadable Lab 1 PDFs for each team member (`public/files/labs/`)
 
 ## Files
 

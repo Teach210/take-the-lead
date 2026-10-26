@@ -231,6 +231,24 @@ h1 {
   font-size: 0.9rem;
 }
 
+.labs-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.lab-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.lab-card h3 {
+  margin-bottom: 0;
+}
+
 .references-list {
   margin: 0.75rem 0 0;
   padding-left: 1.2rem;
@@ -381,13 +399,18 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .labs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .presentation-frame {
     min-height: 260px;
   }
 }
 
 @media (max-width: 640px) {
-  .bios-grid {
+  .bios-grid,
+  .labs-grid {
     grid-template-columns: 1fr;
   }
 }

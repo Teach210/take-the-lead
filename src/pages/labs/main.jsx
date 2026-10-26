@@ -1,6 +1,7 @@
 import { mountPage } from "../../app/mountPage";
 import { PageHero } from "../../components/PageHero";
 import { SiteLayout } from "../../components/SiteLayout";
+import { lab1Submissions } from "../../data/labs";
 
 function LabsPage() {
   return (
@@ -10,11 +11,21 @@ function LabsPage() {
           title="Labs"
           copy="Lab deliverables, reports, and documentation for Take the Lead."
         />
-        <section className="section-shell reveal" aria-labelledby="labs-placeholder-title">
-          <h2 id="labs-placeholder-title" className="section-title">Labs Placeholder</h2>
+        <section className="section-shell reveal" aria-labelledby="lab1-title">
+          <h2 id="lab1-title" className="section-title">Lab 1 – Product Description</h2>
           <p className="section-note">
-            Lab deliverables and project documentation will be published here as labs are completed.
+            The most recent version of each team member's Lab 1 is available as a PDF download.
           </p>
+          <div className="labs-grid">
+            {lab1Submissions.map((submission) => (
+              <article key={submission.name} className="landing-card lab-card">
+                <h3>{submission.name}</h3>
+                <a className="download-btn" href={submission.file} download>
+                  Download Lab 1 PDF
+                </a>
+              </article>
+            ))}
+          </div>
         </section>
       </main>
     </SiteLayout>
