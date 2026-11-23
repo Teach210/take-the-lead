@@ -43,6 +43,10 @@ export const lab2Submissions = [
     file: sitePath("files/labs/Lab2_Jaden_Evans.pdf")
   },
   {
+    name: "Jermaine Lockett",
+    file: sitePath("files/labs/Lab2_Jermaine_Lockett.pdf")
+  },
+  {
     name: "Harrison Basil",
     file: sitePath("files/labs/Lab2_Harrison_Basil.pdf")
   }
