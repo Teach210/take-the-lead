@@ -38,6 +38,8 @@ This section tracks updates made after the initial assignment requirements.
 - Standardized shared UI, styles, data, and page entrypoints under `src/`
 - Added a Vite production build and GitHub Pages deployment workflow
 - Replaced the Labs placeholder with downloadable Lab 1 PDFs for each team member (`public/files/labs/`)
+- Added a User Manual - Lab 3 & Lab 4 link to the team GitHub wiki on the Labs page
+- Added Lab 2 Sections 1 & 2 PDFs for each team member and the team Lab 2 Section 3 PDF to the Labs page
 
 ## Files
 
